@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="autocompleteInput">
+    <test name="testcase-1">
+        <parameter name="productName" value="Apple iPhone 16 Pro Max 256GB Desert Titanium 5G With FaceTime - USA Version (e-SIM only) " />
+        <parameter name="internalMemory" value="1 TB" />
+        <parameter name="version" value="International Version" />
+        <classes>
+            <class name="Tests.ProductPurchaseTesting" />
+        </classes>
+    </test>
+    <test name="testcase-2">
+        <parameter name="productName" value="Apple iPhone 16 Pro Max 256GB Desert Titanium 5G With FaceTime - USA Version (e-SIM only) " />
+        <parameter name="internalMemory" value="1 TB" />
+        <parameter name="version" value="International Version" />
+        <classes>
+            <class name="Tests.ProductPurchaseTesting" />
+        </classes>
+    </test>
+    <test name="testcase-3">
+        <parameter name="productName" value="Apple iPhone 16 Pro Max 256GB Desert Titanium 5G With FaceTime - USA Version (e-SIM only) " />
+        <parameter name="internalMemory" value="1 TB" />
+        <parameter name="version" value="International Version" />
+        <classes>
+            <class name="Tests.ProductPurchaseTesting" />
+        </classes>
+    </test>
+</suite>
