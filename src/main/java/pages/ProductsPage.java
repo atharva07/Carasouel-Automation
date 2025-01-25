@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class ProductsPage extends AbstractPage {
 
-    @FindBy(xpath = "//h1[@class='sc-f35b8612-22 jBencA']")
+    @FindBy(xpath = "//h1[@class='sc-443ac490-22 cImVf']")
     private WebElement productName;
 
     @FindBy(xpath = "//div[@class='modelNumber']")
@@ -33,7 +33,7 @@ public class ProductsPage extends AbstractPage {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
 
     public void getProductDetails() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@class='sc-f35b8612-22 jBencA']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@class='sc-443ac490-22 cImVf']")));
         String productname = this.productName.getText();
         System.out.println(productname);
         String modelname = this.modelName.getText();
