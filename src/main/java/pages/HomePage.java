@@ -60,9 +60,9 @@ public class HomePage extends AbstractPage {
         }
     }
 
-    public void searchProductBar() throws InterruptedException {
+    public void searchProductBar(String searchProduct) throws InterruptedException {
         Thread.sleep(3000);
-        this.searchBar.sendKeys("Iphone 16 pro max");
+        this.searchBar.sendKeys(searchProduct);
         this.searchBar.sendKeys(Keys.ENTER);
     }
 

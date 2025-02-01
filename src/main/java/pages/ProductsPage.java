@@ -45,12 +45,11 @@ public class ProductsPage extends AbstractPage {
     }
 
     public void selectSpecification(String internalMemory, String version) throws InterruptedException {
-        //String internalMemory = "1 TB";
-        //String version = "International Version";
         driver.findElement(By.xpath("//button[contains(text(),'"+internalMemory+"')]")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//button[contains(text(),'"+version+"')]")).click();
         Thread.sleep(3000);
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='loaderCtr inactiveLoading'])[2]")));
         this.addToCartButton.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='checkout-btn']")));
         this.checkoutButton.click();

@@ -2,7 +2,6 @@ package Tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.CheckoutPage;
 import pages.HomePage;
@@ -11,40 +10,21 @@ import resources.ExcelUtils;
 
 import java.io.IOException;
 
-public class ProductPurchaseTesting extends AbstractTest {
+public class ProductPurchaseTestDataDriven extends AbstractTest {
 
-    @Test
-    @Parameters("searchProduct")
-    public void searchProductName(String searchProduct) throws InterruptedException {
+    @Test(dataProvider = "productData")
+    public void productPurchaseTest(String testCaseNo, String browser, String searchProduct, String productName, String internalMemory, String version) throws InterruptedException {
         HomePage homepage = new HomePage(driver);
         homepage.goTo("https://www.noon.com/uae-en/");
         this.driver.manage().window().maximize();
         Assert.assertTrue(homepage.isAt());
         homepage.searchProductBar(searchProduct);
-    }
-
-    @Test(dependsOnMethods = "searchProductName")
-    @Parameters("productName")
-    public void selectProductApple(String productName) throws InterruptedException {
-        HomePage homepage = new HomePage(driver);
         homepage.selectProduct(productName);
-    }
 
-    @Test(dependsOnMethods = "selectProductApple")
-    public void getProductDetails() throws InterruptedException {
         ProductsPage product = new ProductsPage(driver);
         product.getProductDetails();
-    }
-
-    @Test(dependsOnMethods = "getProductDetails")
-    @Parameters({"internalMemory","version"})
-    public void selectSpecificationTest(String internalMemory, String version) throws InterruptedException {
-        ProductsPage product = new ProductsPage(driver);
         product.selectSpecification(internalMemory, version);
-    }
 
-    @Test(dependsOnMethods = "selectSpecificationTest")
-    public void processCheckoutPage() {
         CheckoutPage checkout = new CheckoutPage(driver);
         checkout.productTransaction();
     }
@@ -66,4 +46,6 @@ public class ProductPurchaseTesting extends AbstractTest {
         }
         return productData;
     }
+
+
 }
