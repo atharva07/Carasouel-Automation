@@ -1,6 +1,7 @@
 package Tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.CheckoutPage;
@@ -14,9 +15,11 @@ public class ProductPurchaseTestDataDriven extends AbstractTest {
 
     @Test(dataProvider = "productData")
     public void productPurchaseTest(String testCaseNo, String browser, String searchProduct, String productName, String internalMemory, String version) throws InterruptedException {
+        driver = initializeDriver(browser);
+        this.driver.manage().window().maximize();
+
         HomePage homepage = new HomePage(driver);
         homepage.goTo("https://www.noon.com/uae-en/");
-        this.driver.manage().window().maximize();
         Assert.assertTrue(homepage.isAt());
         homepage.searchProductBar(searchProduct);
         homepage.selectProduct(productName);
@@ -47,5 +50,9 @@ public class ProductPurchaseTestDataDriven extends AbstractTest {
         return productData;
     }
 
+    @AfterMethod
+    public void tearDown() {
+        quitDriver();
+    }
 
 }
