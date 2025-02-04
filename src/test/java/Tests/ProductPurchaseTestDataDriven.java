@@ -8,7 +8,6 @@ import pages.CheckoutPage;
 import pages.HomePage;
 import pages.ProductsPage;
 import resources.ExcelUtils;
-
 import java.io.IOException;
 
 public class ProductPurchaseTestDataDriven extends AbstractTest {
@@ -54,5 +53,4 @@ public class ProductPurchaseTestDataDriven extends AbstractTest {
     public void tearDown() {
         quitDriver();
     }
-
 }
